@@ -1,53 +1,26 @@
-#include<stdio.h> 
- 
-int main() 
-{ 
- 
-  int count,j,n,time,remain,flag=0,time_quantum; 
-  int wait_time=0,turnaround_time=0,at[10],bt[10],rt[10]; 
-  printf("Enter Total Process:\t "); 
-  scanf("%d",&n); 
-  remain=n; 
-  for(count=0;count<n;count++) 
-  { 
-    printf("Enter Arrival Time and Burst Time for Process Process Number %d :",count+1); 
-    scanf("%d",&at[count]); 
-    scanf("%d",&bt[count]); 
-    rt[count]=bt[count]; 
-  } 
-  printf("Enter Time Quantum:\t"); 
-  scanf("%d",&time_quantum); 
-  printf("\n\nProcess\t|Turnaround Time|Waiting Time\n\n"); 
-  for(time=0,count=0;remain!=0;) 
-  { 
-    if(rt[count]<=time_quantum && rt[count]>0) 
-    { 
-      time+=rt[count]; 
-      rt[count]=0; 
-      flag=1; 
-    } 
-    else if(rt[count]>0) 
-    { 
-      rt[count]-=time_quantum; 
-      time+=time_quantum; 
-    } 
-    if(rt[count]==0 && flag==1) 
-    { 
-      remain--; 
-      printf("P[%d]\t|\t%d\t|\t%d\n",count+1,time-at[count],time-at[count]-bt[count]); 
-      wait_time+=time-at[count]-bt[count]; 
-      turnaround_time+=time-at[count]; 
-      flag=0; 
-    } 
-    if(count==n-1) 
-      count=0; 
-    else if(at[count+1]<=time) 
-      count++; 
-    else 
-      count=0; 
-  } 
-  printf("\nAverage Waiting Time= %f\n",wait_time*1.0/n); 
-  printf("Avg Turnaround Time = %f",turnaround_time*1.0/n); 
-  
-  return 0; 
+#include<stdio.h>
+struct process_data
+{
+	int Num;
+	int Pid;  //Process Id
+	int A_time; //Process Arrival Time
+	int B_time; //Process Burst Time
+	int Priority; //Process Priority
+	int F_time; //Process Finish Time
+	int R_time; //Process Remaining  Time During Execution
+	int W_time; //Waiting Time
+	int S_time; //Process start Time
+	int Res_time;
+
+};
+int main()
+{
+	struct process_data a[6];
+	int i;
+	for(i=0;i<6;i++)
+	{
+		printf("enter the process id,arrival time ,priority,burst time ");
+		scanf("%d %d %d",&a[i].Pid,&a[i].Priority,&a[i].A_time,&a[i].B_time);
+	}
+	//sort according to the arrival time and then apply rr using priroirty
 }
