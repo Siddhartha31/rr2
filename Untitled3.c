@@ -22,5 +22,20 @@ int main()
 		printf("enter the process id,arrival time ,priority,burst time ");
 		scanf("%d %d %d",&a[i].Pid,&a[i].Priority,&a[i].A_time,&a[i].B_time);
 	}
-	//sort according to the arrival time and then apply rr using priroirty
+	struct process_data temp;
+int j;
+for (i=0;i<9;i++)
+{
+	for(j=0;j<9-i;j++)
+	{
+		if(a[j].A_time<a[j+1].A_time)
+		{
+			temp=a[j];
+			a[j]=a[j+1];
+			a[j+1]=temp;
+		}
+	}
+	
+}
+	//sorted according to the arrival time and then apply rr using priroirty
 }
