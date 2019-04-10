@@ -19,17 +19,7 @@ int main()
  {
    int n,awt,atat,i,tq;
  
-   //n is number of process
-   //p is process
-   //a[i].Priority is process priority
-   //a[i].B_time is process burst time
-   //w is wait time
-   // t is turnaround time
-   //awt is average waiting time
-   //atat is average turnaround time
-   //at is arrival time
-   //tq is time qunatum
- 
+  
  
    printf("Enter the number of process : ");
    scanf("%d",&n);
